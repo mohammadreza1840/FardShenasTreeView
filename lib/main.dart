@@ -7,7 +7,7 @@ void main() {
 
 var serverData = [
   {
-    "checked": false,
+    "checked": null,
     "children": [
       {
         "checked": false,
@@ -32,7 +32,7 @@ var serverData = [
     "text": "Parent title 1",
   },
   {
-    "checked": true,
+    "checked": null,
     "show": false,
     "children": [],
     "id": 2,
@@ -40,7 +40,7 @@ var serverData = [
     "text": "Parent title 2",
   },
   {
-    "checked": true,
+    "checked": null,
     "children": [],
     "id": 3,
     "pid": 0,
@@ -71,168 +71,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String json = '''{
-    "categories": [
-        {
-            "id": 1,
-            "title": "مهارت های زندگی ",
-            "tests": [
-                {
-                    "id": 1,
-                    "title": "مهارت امید"
-                },
-                {
-                    "id": 2,
-                    "title": "شهادت طلبی"
-                },
-                {
-                    "id": 23,
-                    "title": "مهارت مدارا"
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "title": "خانواده",
-            "tests": [
-                {
-                    "id": 3,
-                    "title": "شوهر خوب"
-                },
-                {
-                    "id": 4,
-                    "title": "همسر خوب"
-                },
-                {
-                    "id": 25,
-                    "title": "مربی فرزندان (هفت سال اول)"
-                }
-            ]
-        },
-        {
-            "id": 3,
-            "title": "شخصیت",
-            "tests": [
-                {
-                    "id": 5,
-                    "title": "شخصیت های فعال و منفعل"
-                },
-                {
-                    "id": 6,
-                    "title": "روحیه ها"
-                }
-            ]
-        },
-        {
-            "id": 4,
-            "title": "مراحل رشد بر اساس استعداد",
-            "tests": [
-                {
-                    "id": 7,
-                    "title": "مرحله اول: انسانیت"
-                },
-                {
-                    "id": 8,
-                    "title": "مرحله دوم: اسلامیت"
-                },
-                {
-                    "id": 9,
-                    "title": "مرحله سوم : ایمانیت"
-                },
-                {
-                    "id": 10,
-                    "title": "مرحله چهارم: تقوا"
-                },
-                {
-                    "id": 11,
-                    "title": "مرحله پنجم: یقین"
-                }
-            ]
-        },
-        {
-            "id": 5,
-            "title": "مراحل سقوط فرد",
-            "tests": [
-                {
-                    "id": 12,
-                    "title": "مرحله اول: شک"
-                },
-                {
-                    "id": 13,
-                    "title": "مرحله دوم: شرک"
-                },
-                {
-                    "id": 14,
-                    "title": "مرحله سوم: کفر"
-                },
-                {
-                    "id": 15,
-                    "title": "مرحله چهارم: نفاق"
-                },
-                {
-                    "id": 16,
-                    "title": "مرحله پنجم: ارتداد و تعرب"
-                }
-            ]
-        },
-        {
-            "id": 6,
-            "title": "شکوفایی استعداد",
-            "tests": [
-                {
-                    "id": 17,
-                    "title": "سطح اول شکوفایی: تقوا"
-                },
-                {
-                    "id": 18,
-                    "title": "سطح دوم شکوفایی: احسان"
-                },
-                {
-                    "id": 19,
-                    "title": "سطح سوم شکوفایی: اخبات"
-                }
-            ]
-        },
-        {
-            "id": 7,
-            "title": "اخلاق",
-            "tests": [
-                {
-                    "id": 20,
-                    "title": "سلامت حال"
-                },
-                {
-                    "id": 21,
-                    "title": "وخامت حال"
-                },
-                {
-                    "id": 22,
-                    "title": "مراتب ارتکاب معاصی"
-                }
-            ]
-        },
-        {
-            "id": 8,
-            "title": "آسیب های فردی",
-            "tests": [
-                {
-                    "id": 24,
-                    "title": "پیشگیری از خودکشی"
-                }
-            ]
-        }
-    ]
-  }''';
+    String json =
+        '''{"categories": [{"id": 1,"title": "مهارت های زندگی ","tests": [{"id": 1,"title": "مهارت امید"},{"id": 2,"title": "شهادت طلبی"},{"id": 23,"title": "مهارت مدارا"}]},{"id": 2,"title": "خانواده","tests": [{"id": 3,"title": "شوهر خوب"},{"id": 4,"title": "همسر خوب"},{"id": 25,"title": "مربی فرزندان (هفت سال اول)"}]},{"id": 3,"title": "شخصیت","tests": [{"id": 5,"title": "شخصیت های فعال و منفعل"},{"id": 6,"title": "روحیه ها"}]},{"id": 4,"title": "مراحل رشد بر اساس استعداد","tests": [{"id": 7,"title": "مرحله اول: انسانیت"},{"id": 8,"title": "مرحله دوم: اسلامیت"},{"id": 9,"title": "مرحله سوم : ایمانیت"},{"id": 10,"title": "مرحله چهارم: تقوا"},{"id": 11,"title": "مرحله پنجم: یقین"}]},{"id": 5,"title": "مراحل سقوط فرد","tests": [{"id": 12,"title": "مرحله اول: شک"},{"id": 13,"title": "مرحله دوم: شرک"},{"id": 14,"title": "مرحله سوم: کفر"},{"id": 15,"title": "مرحله چهارم: نفاق"},{"id": 16,"title": "مرحله پنجم: ارتداد و تعرب"}]},{"id": 6,"title": "شکوفایی استعداد","tests": [{"id": 17,"title": "سطح اول شکوفایی: تقوا"},{"id": 18,"title": "سطح دوم شکوفایی: احسان"},{"id": 19,"title": "سطح سوم شکوفایی: اخبات"}]},{"id": 7,"title": "اخلاق","tests": [{"id": 20,"title": "سلامت حال"},{"id": 21,"title": "وخامت حال"},{"id": 22,"title": "مراتب ارتکاب معاصی"}]},{"id": 8,"title": "آسیب های فردی","tests": [{"id": 24,"title": "پیشگیری از خودکشی"}]}]}''';
 
     Map<String, dynamic> data = jsonDecode(json);
 
     List<Category> categories = List<Category>.from(
         data['categories'].map((category) => Category.fromJson(category)));
-    serverData = categories.map<Map<String, Object>>(
+    serverData = categories.map<Map<String, dynamic>>(
       (e) {
-        return <String, Object>{
+        return <String, dynamic>{
           "checked": false,
-          "children": e.tests!.map<Map<String, Object>>((ee) {
+          "children": e.tests!.map<Map<String, dynamic>>((ee) {
             return <String, Object>{
               "checked": false,
               "show": false,
@@ -334,21 +184,36 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                               ),
                             Checkbox(
                               value: treeData[index].checked,
+                              tristate: true,
                               onChanged: (bool? value) {
-                                treeData[index].checked = value!;
-                                setState(() {
-                                  if (value) {
-                                    for (var element
-                                        in treeData[index].children) {
-                                      element.checked = true;
+                                if (value == null) {
+                                  treeData[index].checked = false;
+                                } else {
+                                  treeData[index].checked = value;
+                                }
+                                setState(
+                                  () {
+                                    if (value != null) {
+                                      if (value!) {
+                                        for (var element
+                                            in treeData[index].children) {
+                                          element.checked = true;
+                                        }
+                                      } else {
+                                        for (var element
+                                            in treeData[index].children) {
+                                          element.checked = false;
+                                        }
+                                      }
+                                    } else {
+                                      value = false;
+                                      for (var element
+                                          in treeData[index].children) {
+                                        element.checked = false;
+                                      }
                                     }
-                                  } else {
-                                    for (var element
-                                        in treeData[index].children) {
-                                      element.checked = false;
-                                    }
-                                  }
-                                });
+                                  },
+                                );
                               },
                             ),
                             Expanded(
@@ -402,19 +267,35 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                                                   treeData[index]
                                                       .children[index2]
                                                       .checked = value!;
-                                                  setState(() {
-                                                    if (treeData[index]
-                                                        .children
-                                                        .every((element) =>
-                                                            element.checked ==
-                                                            true)) {
-                                                      treeData[index].checked =
-                                                          true;
-                                                    } else {
-                                                      treeData[index].checked =
-                                                          false;
-                                                    }
-                                                  });
+                                                  setState(
+                                                    () {
+                                                      if (treeData[index]
+                                                          .children
+                                                          .every((element) =>
+                                                              element.checked ==
+                                                              true)) {
+                                                        treeData[index]
+                                                            .checked = true;
+                                                      } else if (treeData[index]
+                                                              .children
+                                                              .any((element) =>
+                                                                  element
+                                                                      .checked ==
+                                                                  true) &&
+                                                          treeData[index]
+                                                              .children
+                                                              .any((element) =>
+                                                                  element
+                                                                      .checked ==
+                                                                  false)) {
+                                                        treeData[index]
+                                                            .checked = null;
+                                                      } else {
+                                                        treeData[index]
+                                                            .checked = false;
+                                                      }
+                                                    },
+                                                  );
                                                 },
                                               ),
                                               Expanded(
@@ -455,9 +336,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                     selected.addAll(element.children
                         .where((element) => element.checked == true));
                   });
-                  print(selected.map((e) => <int,String>{e.id: e.title}));
+                  print(selected.map((e) => <int, String>{e.id: e.title}));
                 },
-                child: Text('ارسال'))
+                child: const Text('ارسال'))
           ],
         ),
       ),
@@ -499,7 +380,7 @@ class TreeNodeData {
   int id;
   String title;
   bool expaned;
-  bool checked;
+  bool? checked;
   dynamic extra;
   List<TreeNodeData> children;
   AnimationController? rotationController;
